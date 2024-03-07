@@ -1,10 +1,6 @@
 import pygame
 
 
-green = (0, 255, 0)
-red = (255, 0, 0)
-blue = (0, 0, 128)
-
 def main():
     pygame.init()
 
@@ -14,6 +10,13 @@ def main():
 
     # Screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    
+    # screen
+    screen.fill((0,0,0))
+    
+    
+    p = p_ + v_t + (1/2) * a_t
+    
     run = True
 
     # Game loop
@@ -24,16 +27,12 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 
-        # screen
-        screen.fill((30,30,30))
-        
-        # CODE FOR RENDERING TEXT ON UI
-        font= pygame.font.SysFont(None, 72)
-        img = font.render('hello!!!!', True, (0,0,255))
-        screen.blit(img, (100, 100))
+                
+
             
         # updates screen   
         pygame.display.update()
+        
         
     # Quit method is out of the loop since run = False   
     pygame.quit()

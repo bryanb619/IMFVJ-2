@@ -37,7 +37,7 @@ def main():
         i = str(pygame.mouse.get_pos())
 
         font= pygame.font.SysFont(None, 72)
-        img = font.render(i, True, (0,0,255))
+        img = font.render("Cursor pos (x,y) " +i, True, (0,0,255))
         screen.blit(img, (20, 20))
         
         
@@ -49,18 +49,14 @@ def main():
         #if mouse click is true
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                print('Mouse clicked')
+                #print('Mouse clicked')
                 m +=1
-               
                 h = str(m)
                 
         font= pygame.font.SysFont(None, 72)
-        img = font.render(h, True, (255,0,255))
+        img = font.render("Mouse click: " +h, True, (255,0,255))
         screen.blit(img, (150, 150))   
                 
-            
-                
-    
         # updates screen   
         pygame.display.update()
         

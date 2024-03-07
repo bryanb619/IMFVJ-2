@@ -23,7 +23,7 @@ def main():
                 
         # screen
     
-        screen.fill((124,135,50))
+        screen.fill((0,0,0))
             
         # updates screen   
         pygame.display.update()
