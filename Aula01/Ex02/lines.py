@@ -28,6 +28,8 @@ def main():
         screen.fill((30,30,30))
         
         # connect lines
+        
+        # (X,Y), (X,Y), Tamanho linha
         pygame.draw.line(screen, RED, (400, 200), (600, 200), 5)
         pygame.draw.line(screen, BLUE, (400, 200), (500, 100), 7)
         pygame.draw.line(screen, GREEN, (500, 100), (600, 200), 3)

@@ -25,6 +25,10 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                #print('Mouse clicked')
+                pos +=10
+                
                 
         # screen
         screen.fill((30,30,30))
@@ -40,19 +44,7 @@ def main():
         screen.blit(img, (20, 20))
         
         
-        # count mouse clicks
-        
-        # get mouse click
-        
-        
-        #if mouse click is true
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                print('Mouse clicked')
-                pos +=10
                
-     
-            
         pygame.draw.circle(screen, (255,0,0), (pos, 100), 100)
     
         # updates screen   
