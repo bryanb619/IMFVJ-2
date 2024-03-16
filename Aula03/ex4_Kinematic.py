@@ -3,7 +3,7 @@ import numpy as np
 
 
 pos = [100, 100]
-target = [800, 100]
+target = [600, 100]
 
 velocity = 1
 
@@ -37,44 +37,20 @@ def main():
                 run = False
                 
                 
-            
-        # obter vetor direção
-        v_dir = np.subtract(target,pos) 
-        
-        # normalizar vetor direção e aplicar em distancia
-        distance = np.linalg.norm(v_dir)
-        
-       # print(v_dir)
-                
-        if (distance < slowRadius):
-            
-            # APLICAR A VELOCIDADE REDUZIDA
-            v_dir_norm = v_dir/np.linalg.norm(v_dir) * _maxVelocity * (distance/slowRadius)
-            v_dir_norm = v_dir_norm * velocity
-            pos = np.add(pos, v_dir_norm)
-
-            
-        else:
-                    
-            # NORMALIZAÇÃO NORMAL
-            v_dir_norm = v_dir/np.linalg.norm(v_dir)
-            
-            v_dir_norm = v_dir_norm * velocity
-        
-            pos = np.add(pos, v_dir_norm)
-        
+        # when pos x is < target x position continue incrementing
+        if(pos[0] < target[0]):
+            # add 0.1 
+            pos[0] += 0.1
             
             
+        # Target circle
+        pygame.draw.circle(screen, (0,255,0), (target), 12)
             
-            
+        # Moving circle
         pygame.draw.circle(screen, (255,0,0), (pos), 10)
         
-        pygame.draw.circle(screen, (0,255,0), (target), 12)
-        
-    
         # updates screen   
         pygame.display.update()
-        
         
     # Quit method is out of the loop since run = False   
     pygame.quit()
