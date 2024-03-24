@@ -1,23 +1,29 @@
 import pygame
 import random
 
-# position of the line start
-pos = [400,300]
+
+
+# screen size variables
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 800
+
+
+# position of the line at start
+pos = [SCREEN_WIDTH /2, SCREEN_HEIGHT /2]
 
 BLUE = (0,0,255)
 
-# screen size variables
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-
-
+# screen variable = do display mode and res size
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
+# turn
+
+i = 0
 
 
 def main():
-    global screen
+    global screen, i
     
     pygame.init()
 
@@ -36,7 +42,8 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 
                 if event.key == pygame.K_UP:
-                    print("detected")
+                    i+=1
+                    print(f" Turn ==> {i}")
                     # call new method
                     draw_line()
                 
@@ -57,9 +64,9 @@ def draw_line():
 
     global pos
     
-    # randomizar em +- 62% cada eixo
-    random_x = random.randint(400, 462)
-    random_y = random.randint(300, 362)
+    # randomizar em +- 6.2% cada eixo = 12.4% total 
+    random_x = random.randint(500, 562)
+    random_y = random.randint(400, 462)
     
     pygame.draw.line(screen, (BLUE), (pos[0], pos[1]), (random_x, random_y), 1)
     
