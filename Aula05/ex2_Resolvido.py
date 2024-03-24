@@ -62,7 +62,7 @@ def main():
         # transform in milliseconds
         time_step = delta_time/100
         
-        " ============== Standard game loop structure ============== "
+        # ============== Standard game loop structure ============== #
         
         # screen
         screen.fill((0,0,0))
@@ -71,10 +71,15 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-        
+            
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    # double acceleration
+                    # Only works in X axis movement
+                    acceleration *= 2
         # ----------------------------------------------------------------------
                 
-        #Draw objects
+        # Draw Graphics
                 
         # Draw line
         pygame.draw.line(screen, (255,0,0), LINE_START, LINE_END, 5)
@@ -82,11 +87,8 @@ def main():
         # Draw circle                         
         pygame.draw.circle(screen, (0,0,255), (ball_x, ball_y), 15)
         
-        # ----------------------------------------------------------------------
         
-        
-        
-        " ===  Update Circle position  === "
+        " ====================  UPDATE CIRCLE POS  ==================== "
         
         # check if ball is falling
         if ball_x <= LINE_END[0]:
@@ -115,7 +117,6 @@ def main():
         # updates screen   
         pygame.display.update()
         # ----------------------------------------------------------------------
-        
         
     # Quit method is out of the loop since run = False   
     pygame.quit()
